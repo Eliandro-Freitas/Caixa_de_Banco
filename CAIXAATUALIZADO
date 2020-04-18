@@ -1,0 +1,158 @@
+package testes.SwitchCase;
+
+import java.util.Scanner;
+
+public class MENU {
+    public static void main(String[]args){
+        Scanner leia = new Scanner(System.in);
+        int cpf, cpf1,transferencia = 0,deposito =0, ntransferencia = 0, ndeposito=0,nsaque=0;
+        cpf = 123456789-00;
+        int op=0;
+        int senha1 ,senha,saque = 0;
+        senha1 = 1020304;
+        int saldoinicial = 1000,saldoatualizado=0;
+        int senhaerrada=0;
+        saldoatualizado = saldoatualizado + saldoinicial;
+            do{
+            System.out.println("DIGITE SEU CPF");
+            cpf1 = leia.nextInt();
+            
+            if (cpf1 == cpf){
+                do{
+                System.out.println("DIGITE A SENHA");
+                senha = leia.nextInt();
+                   
+                if(senha == senha1){
+                    System.out.println("BEM VINDO AO POKEBANK");
+                    do{
+                        System.out.println("=========\n  MENU    \n=========\n 1 - SALDO\n 2 - DEPÓSITO\n 3 - SAQUE\n 4 - TRANSFERÊNCIA\n 5 - EXTRATO\n 0 - SAIR");
+                        op = leia.nextInt();
+                        switch(op){
+                            case 1 : 
+                                System.out.println("SALDO ATUAL\nR$"+saldoatualizado);
+                             
+                             break;  
+                            case 2 :                               
+                                System.out.println("DIGITE O VALOR A SER DEPOSITADO");
+                                deposito = leia.nextInt();
+                                saldoatualizado = saldoatualizado + deposito;
+                                ndeposito = ndeposito + deposito;
+                                System.out.println("DESEJA CONTINUAR ?\n1 - SIM\n0 - FINALIZAR");
+                                op = leia.nextInt();
+                                
+                                break;
+                            case 3 :
+                                System.out.println("DIGITE O VALOR A SER SACADO");
+                                do{
+                                saque = leia.nextInt();
+                                if(saque>saldoatualizado){
+                                    System.out.println("SALDO INDISPONÍVEL\n=============\nDIGITE NOVAMENTE O VALOR OU 0 PARA SAIR");
+                                }
+                                }while(saque > saldoatualizado);
+                                saldoatualizado = saldoatualizado - saque;
+                                nsaque = nsaque + saque;
+                               System.out.println("DESEJA CONTINUAR ?\n1 - SIM\n0 - FINALIZAR");
+                               op = leia.nextInt();
+                                break;
+                            case 4 : 
+                                System.out.println("CONTA");
+                                int conta = leia.nextInt();
+                                System.out.println("AGÊNCIA");
+                                int agencia = leia.nextInt();
+                                System.out.println("BANCO\n 1 - ITAU\n 2 - SANTANDER\n 3 - BRADESCO\n 4 - BANCO DO BRASIL\n 5 - CAIXA ECONÔMICA");
+                                int banco = leia.nextInt();
+                                if(banco == 1){
+                                    System.out.println("DIGITE O VALOR A SER TRANSFERIDO");
+                                do{
+                                transferencia = leia.nextInt();
+                                if(transferencia > saldoatualizado){
+                                    System.out.println("VALOR INDISPONÍVEL\n DIGITE O VALOR NOVAMENTE OU 0 PARA SAIR");
+                                }
+                                }while(transferencia > saldoatualizado);
+                                saldoatualizado = saldoatualizado - transferencia;
+                                ntransferencia = ntransferencia + transferencia;
+
+                                System.out.println(" CONTA - "+conta+"\n AGÊNCIA - "+agencia+"\n BANCO - ITAU\n VALOR TRANSFERIDO - R$"+transferencia);
+                                }else if (banco == 2 ){
+                                          System.out.println("DIGITE O VALOR A SER TRANSFERIDO");
+                                do{
+                                transferencia = leia.nextInt();
+                                if(transferencia > saldoatualizado){
+                                    System.out.println("VALOR INDISPONÍVEL\n DIGITE O VALOR NOVAMENTE OU 0 PARA SAIR");
+                                }
+                                }while(transferencia > saldoatualizado);
+                                saldoatualizado = saldoatualizado - transferencia;
+                                ntransferencia = ntransferencia + transferencia;
+                                  
+                                System.out.println(" CONTA - "+conta+"\n AGÊNCIA - "+agencia+"\n BANCO - SANTANDER\n VALOR TRANSFERIDO - R$"+transferencia);
+                                }else if (banco == 3 ){
+                                          System.out.println("DIGITE O VALOR A SER TRANSFERIDO");
+                                do{
+                                transferencia = leia.nextInt();
+                                if(transferencia > saldoatualizado){
+                                    System.out.println("VALOR INDISPONÍVEL\n DIGITE O VALOR NOVAMENTE OU 0 PARA SAIR");
+                                }
+                                }while(transferencia > saldoatualizado);
+                                saldoatualizado = saldoatualizado - transferencia;
+                                ntransferencia = ntransferencia + transferencia;
+                                  
+                                System.out.println(" CONTA - "+conta+"\n AGÊNCIA - "+agencia+"\n BANCO - BRADESCO\n VALOR TRANSFERIDO - R$"+transferencia);
+                                }else if (banco == 4 ){
+                                          System.out.println("DIGITE O VALOR A SER TRANSFERIDO");
+                                do{
+                                transferencia = leia.nextInt();
+                                if(transferencia > saldoatualizado){
+                                    System.out.println("VALOR INDISPONÍVEL\n DIGITE O VALOR NOVAMENTE OU 0 PARA SAIR");
+                                }
+                                }while(transferencia > saldoatualizado);
+                                saldoatualizado = saldoatualizado - transferencia;
+                                ntransferencia = ntransferencia + transferencia;
+                                  
+                                System.out.println(" CONTA - "+conta+"\n AGÊNCIA - "+agencia+"\n BANCO - BANCO DO BRASIL\n VALOR TRANSFERIDO - R$"+transferencia);
+                                }else if (banco == 5 ){
+                                          System.out.println("DIGITE O VALOR A SER TRANSFERIDO");
+                                do{
+                                transferencia = leia.nextInt();
+                                if(transferencia > saldoatualizado){
+                                    System.out.println("VALOR INDISPONÍVEL\n DIGITE O VALOR NOVAMENTE OU 0 PARA SAIR");
+                                }
+                                }while(transferencia > saldoatualizado);
+                                saldoatualizado = saldoatualizado - transferencia;
+                                ntransferencia = ntransferencia + transferencia;
+                                  
+                                System.out.println(" CONTA - "+conta+"\n AGÊNCIA - "+agencia+"\n BANCO - CAIXA ECONÔMICA\n VALOR TRANSFERIDO - R$"+transferencia);
+                                }else{
+                                    System.out.println("VALOR INVÁLIDO");
+                                }
+                                System.out.println("DESEJA CONTINUAR ?\n1 - SIM\n0 - FINALIZAR");
+                                op = leia.nextInt();
+                                break;
+                            case 5:
+                                System.out.println("====================\n SALDO R$"+saldoatualizado+"\n DEPOSITOS R$"+ndeposito+"\n SAQUES R$ "+nsaque+"\n TRANSFERENCIA R$"+ntransferencia+"\n====================");
+                              System.out.println("DESEJA CONTINUAR ?\n1 - SIM\n 0- FINALIZAR");
+                                op = leia.nextInt();
+                                break;
+                            default :
+                                System.out.println("DIGITO INVÁLIDO");
+                        }
+                        
+                                
+                    }while(op!=0);
+                }else{
+                    System.out.println("SENHA INVÁLIDA\n==================");
+                    senhaerrada++;
+                }
+                }while(senha1!= senha && senhaerrada < 2);
+                
+                         
+            }else{
+                System.out.println("CPF INVÁLIDO\n=====================\nACESSO NÃO PERMITIDO\n=====================\n");
+            }
+        
+         }while(cpf1!=cpf);
+         if(senhaerrada==2){
+                    System.out.println("\n==================\n CONTA BLOQUEADA \n==================");
+                }
+    }
+    
+}
